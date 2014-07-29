@@ -1,0 +1,11 @@
+%h2#title Main Menu
+
+#menu
+  %p
+    %a{:href => url('/start')} Start
+  %p
+    %a{:href => url('/stop')} Stop
+  %p
+    %a{:href => "#{settings.server_status_page}"} Server Status (external)
+  %p
+    %a{:href => url('/molly-guard')} Reboot

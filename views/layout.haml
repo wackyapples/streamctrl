@@ -1,0 +1,25 @@
+!!!
+%html
+
+  %head
+    %title= "#{settings.station} - Streaming Pi"
+    %link{:href => '/main.css', :rel => 'stylesheet', :type => 'text/css'}
+
+  %body
+    #container
+      #header
+        #logo
+
+          %h1
+            %a{:href => '/'}= "#{settings.station} - Streamer"
+
+        -# The status of the stream, or specifically if darkice is running.
+        #status
+          %p= "Status - #{status_str}"
+
+      -# The content of the individual page starts below here.
+      #content= yield
+      -# And ends here.
+      
+      #footer
+        %p= "StreamCtrl #{settings.streamctrlver} - Sinatra #{VERSION} - Ruby #{RUBY_VERSION}"

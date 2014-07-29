@@ -1,0 +1,31 @@
+/ This tag definately doesn't belong here.
+%meta{'http-equiv' => 'refresh', 'content' => "60;#{url('/')}"}
+
+%h2 Now Rebooting!!
+
+/ JavaScript adapted from https://stackoverflow.com/questions/4575789/show-redirecting-in-countdown-timer-php
+:javascript
+  (function () {
+      var timeLeft = 60,
+          cinterval;
+
+      var timeDec = function (){
+          timeLeft--;
+          document.getElementById('countdown').innerHTML = timeLeft;
+          if(timeLeft === 0){
+              clearInterval(cinterval);
+          }
+      };
+
+      cinterval = setInterval(timeDec, 1000);
+  })();
+
+%h3 Please wait, you should automatically be redirected when the timer reaches 0
+
+%h2
+  %span#countdown 60
+
+-# Ok, OBVIOUSLY this isn't the ideal way of accomplishing this
+-# BUT, this is the only way I found to have this page load before
+-# the system goes down for a reboot. Sue me.
+- spawn('sleep 2s; /sbin/shutdown -r now')
