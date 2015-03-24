@@ -106,6 +106,8 @@ end
 # /molly-guard, or rather be referred from there.
 get '/pushed-the-big-red-button' do
   if request.referrer =~ /molly-guard/
+    headers \
+      "Refresh" => "60; request.base_url"
     haml :reboot
   else
     redirect to('/molly-guard')
